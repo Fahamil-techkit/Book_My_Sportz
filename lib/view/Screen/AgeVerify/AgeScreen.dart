@@ -81,7 +81,7 @@ class _AgeVerifyState extends State<AgeVerify> {
                       color: Colors.purple.shade900),
                   child: const Center(
                     child: Text(
-                      "Below 16",
+                      "Above 16",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,
