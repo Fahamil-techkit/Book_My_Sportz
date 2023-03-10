@@ -1,7 +1,7 @@
 import 'package:book_my_sporz/view/Const/appconstrants.dart';
 import 'package:flutter/material.dart';
 
-import '../parent_section/parent_section.dart';
+import '../Personal Information.dart';
 
 class AgeVerify extends StatefulWidget {
   const AgeVerify({Key? key}) : super(key: key);
@@ -16,9 +16,20 @@ class _AgeVerifyState extends State<AgeVerify> {
     final Size size = MediaQuery.of(context).size;
     return Material(
       child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+            ),
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.white,
+        ),
         body: Container(
-          width: size.width,
-          height: size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -36,7 +47,7 @@ class _AgeVerifyState extends State<AgeVerify> {
               InkWell(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ParentInformationScreen()));
+                      builder: (context) => BelowAgeScreen()));
                 },
                 child: Container(
                   margin: const EdgeInsets.all(20),
@@ -57,7 +68,10 @@ class _AgeVerifyState extends State<AgeVerify> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => BelowAgeScreen()));
+                },
                 child: Container(
                   margin: const EdgeInsets.all(20),
                   width: size.width,
@@ -67,7 +81,7 @@ class _AgeVerifyState extends State<AgeVerify> {
                       color: Colors.purple.shade900),
                   child: const Center(
                     child: Text(
-                      "Above 16",
+                      "Below 16",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,
@@ -123,41 +137,3 @@ class _AgeVerifyState extends State<AgeVerify> {
     );
   }
 }
-// import 'package:flutter/material.dart';
-
-// class ParentInformationScreen extends StatefulWidget {
-//   @override
-//   _ParentInformationScreenState createState() =>
-//       _ParentInformationScreenState();
-// }
-
-// class _ParentInformationScreenState extends State<ParentInformationScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Parent Information'),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16.0),
-//         child: ExpansionTile(
-//           title: Text('Parent Information'),
-//           children: [
-//             TextFormField(
-//               decoration: InputDecoration(labelText: 'Full Name'),
-//             ),
-//             TextFormField(
-//               decoration: InputDecoration(labelText: 'Email'),
-//             ),
-//             TextFormField(
-//               decoration: InputDecoration(labelText: 'Phone Number'),
-//             ),
-//             TextFormField(
-//               decoration: InputDecoration(labelText: 'Address'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

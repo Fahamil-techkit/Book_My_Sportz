@@ -9,44 +9,69 @@ class ParentInformationScreen extends StatefulWidget {
 class _ParentInformationScreenState extends State<ParentInformationScreen> {
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: const Icon(
-          Icons.arrow_back_sharp,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
           color: Colors.black,
         ),
+        elevation: 0,
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
+          padding: const EdgeInsets.only(top: 12, right: 10, left: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 'Parents Information',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
-                ),
+                style: TextStyle(fontSize: 24.0, color: Colors.purple),
               ),
-              SizedBox(height: 40.0),
-              Container1(containertitel: "Father's Details"),
-              SizedBox(
+              const SizedBox(height: 40.0),
+              const Container1(containertitel: "Father's Details"),
+              const SizedBox(
                 height: 20,
               ),
-              Container1(
+              const Container1(
                 containertitel: "Mother's Details",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text("Optional"),
-              SizedBox(
+              const Text("Optional"),
+              const SizedBox(
                 height: 12,
               ),
-              Container1(containertitel: "Gurdian's Details")
+              const Container1(containertitel: "Gurdian's Details"),
+              SizedBox(
+                height: size.height / 3,
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        width: 350,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.purple,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Continue"),
+                        )),
+                  )
+                ],
+              )
             ],
           ),
         ),
@@ -67,9 +92,10 @@ class Container1 extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: Colors.grey.shade800,
+        color: Color.fromRGBO(143, 141, 159, 100),
       ),
       child: ExpansionTile(
+        // backgroundColor: Colors.black,
         title: Text(
           containertitel,
           style: const TextStyle(color: Colors.white),

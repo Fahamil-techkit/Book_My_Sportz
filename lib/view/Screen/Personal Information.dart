@@ -1,29 +1,277 @@
+import 'package:book_my_sporz/view/Screen/parent_section/parent_section.dart';
 import 'package:flutter/material.dart';
 
-class PersonalInfoScreen extends StatefulWidget {
-  const PersonalInfoScreen({super.key});
+class BelowAgeScreen extends StatefulWidget {
+  const BelowAgeScreen({super.key});
 
   @override
-  State<PersonalInfoScreen> createState() => _PersonalInfoScreenState();
+  State<BelowAgeScreen> createState() => _BelowAgeScreenState();
 }
 
-class _PersonalInfoScreenState extends State<PersonalInfoScreen> {
+class _BelowAgeScreenState extends State<BelowAgeScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    String male = "Male";
+    String female = "Female";
+    String other = "Other";
+    DateTime selectedDate = DateTime.now();
+    List<String> moths = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    Future<void> _selectedDate(BuildContext context) async {
+      final DateTime? picked = await showDatePicker(
+          context: context,
+          initialDate: selectedDate,
+          firstDate: DateTime(2023, 1),
+          lastDate: DateTime(2100, 12));
+
+      if (picked != null && picked != selectedDate) {
+        setState(() {
+          selectedDate = picked;
+        });
+      }
+    }
+
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Row(
-        children: [
-          SizedBox(
-            height: size.height / 5,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back,
           ),
-          Text(
-            "Personal Information",
-            style: TextStyle(
-              fontSize: 22,
+          color: Colors.black,
+        ),
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 21,
+              ),
+              child: Container(
+                alignment: AlignmentDirectional.bottomStart,
+                child: const Text(
+                  "Personal Information",
+                  style: TextStyle(fontSize: 25, color: Colors.purple),
+                ),
+              ),
             ),
-          )
-        ],
+            SizedBox(
+              height: 22,
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  filled: true,
+                  hintText: "Name",
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.purple),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.purple),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  filled: true,
+                  hintText: "Day / Month / Year",
+                  suffixIcon: IconButton(
+                    mouseCursor: MouseCursor.defer,
+                    onPressed: () {
+                      _selectedDate(context);
+                    },
+                    icon: const Icon(Icons.date_range),
+                    color: Colors.black,
+                  ),
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.purple),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.purple),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 22,
+                ),
+                Text(
+                  "Gender",
+                  style: TextStyle(fontSize: 21),
+                )
+              ],
+            ),
+            //gender choice
+            Row(
+              children: [
+                const Icon(Icons.description),
+                const SizedBox(
+                  width: 11,
+                ),
+                ChoiceChip(
+                  label: Text(
+                    "Male",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: male == "Male" ? Colors.black : Colors.white,
+                    ),
+                  ),
+                  selected: male == "Male" ? true : false,
+                  selectedColor: Colors.white70,
+                  selectedShadowColor: Colors.black,
+                  onSelected: (value) {
+                    if (value) {
+                      setState(() {
+                        male = "Income";
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(
+                  width: 55,
+                ),
+                ChoiceChip(
+                  label: Text(
+                    "Female",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: female == "Female" ? Colors.black : Colors.white,
+                    ),
+                  ),
+                  selected: female == "Female" ? true : false,
+                  selectedColor: Colors.white70,
+                  onSelected: (value) {
+                    if (value) {
+                      setState(() {
+                        female = "Female";
+                      });
+                    }
+                  },
+                ),
+                SizedBox(
+                  width: size.width / 7,
+                ),
+                ChoiceChip(
+                  label: Text(
+                    "Other",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: other == "Other" ? Colors.black : Colors.white,
+                    ),
+                  ),
+                  selected: female == "Other" ? true : false,
+                  selectedColor: Colors.white70,
+                  onSelected: (value) {
+                    if (value) {
+                      setState(() {
+                        other = "Other";
+                      });
+                    }
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Textform1(Inttext1: "Aadhaar NO."),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 2.0),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(hintText: 'School Name'),
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(hintText: 'School Addess'),
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(hintText: 'Study Period'),
+                    ),
+                    SizedBox(height: 16.0),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Add Another School '),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 14,
+            ),
+            Container(
+                width: 350,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => ParentInformationScreen(),
+                      ),
+                    );
+                  },
+                  child: Text("Continue"),
+                ))
+          ],
+        ),
       ),
     );
   }

@@ -112,28 +112,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: size.height / 5,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const AgeVerify()));
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple.shade900,
-                  textStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+              Container(
+               // alignment: ,
+                height: 70,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const AgeVerify()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple.shade900,
+                    textStyle: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Create an Account",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
+                  child: const Center(
+                    child: Text(
+                      "Create an Account",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               )
