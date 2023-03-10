@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ParentInformationScreen extends StatefulWidget {
+  const ParentInformationScreen({super.key});
+
   @override
   _ParentInformationScreenState createState() =>
       _ParentInformationScreenState();
@@ -67,7 +69,7 @@ class _ParentInformationScreenState extends State<ParentInformationScreen> {
                         ),
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text("Continue"),
+                          child: const Text("Continue"),
                         )),
                   )
                 ],
@@ -92,7 +94,7 @@ class Container1 extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
-        color: Color.fromRGBO(143, 141, 159, 100),
+        color: const Color.fromRGBO(143, 141, 159, 100),
       ),
       child: ExpansionTile(
         // backgroundColor: Colors.black,
@@ -102,31 +104,31 @@ class Container1 extends StatelessWidget {
         ),
         children: const [
           Textform1(
-            Inttext1: "Name",
+            inttext1: "Name",
           ),
           SizedBox(
             height: 12,
           ),
           Textform1(
-            Inttext1: " Aadhar NO.",
+            inttext1: " Aadhar NO.",
           ),
           SizedBox(
             height: 12,
           ),
           Textform1(
-            Inttext1: "Phone NO",
+            inttext1: "Phone NO",
           ),
           SizedBox(
             height: 12,
           ),
           Textform1(
-            Inttext1: "Email",
+            inttext1: "Email",
           ),
           SizedBox(
             height: 12,
           ),
           Textform1(
-            Inttext1: "Address",
+            inttext1: "Address",
           ),
           SizedBox(
             height: 12,
@@ -138,10 +140,10 @@ class Container1 extends StatelessWidget {
 }
 
 class Textform1 extends StatelessWidget {
-  final String Inttext1;
+  final String inttext1;
   const Textform1({
     super.key,
-    required this.Inttext1,
+    required this.inttext1,
   });
 
   @override
@@ -149,7 +151,7 @@ class Textform1 extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         filled: true,
-        hintText: Inttext1,
+        hintText: inttext1,
         fillColor: Colors.grey[200],
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),

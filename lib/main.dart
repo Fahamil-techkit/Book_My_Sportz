@@ -1,5 +1,4 @@
-import 'package:book_my_sporz/view/Screen/Personal%20Information.dart';
-import 'package:book_my_sporz/view/Screen/parent_section/parent_section.dart';
+
 import 'package:book_my_sporz/view/Screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }

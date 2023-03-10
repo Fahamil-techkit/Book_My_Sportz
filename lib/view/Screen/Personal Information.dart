@@ -1,3 +1,5 @@
+
+
 import 'package:book_my_sporz/view/Screen/parent_section/parent_section.dart';
 import 'package:flutter/material.dart';
 
@@ -16,20 +18,20 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
     String female = "Female";
     String other = "Other";
     DateTime selectedDate = DateTime.now();
-    List<String> moths = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ];
+    // List<String> moths = [
+    //   "Jan",
+    //   "Feb",
+    //   "Mar",
+    //   "Apr",
+    //   "May",
+    //   "Jun",
+    //   "Jul",
+    //   "Aug",
+    //   "Sep",
+    //   "Oct",
+    //   "Nov",
+    //   "Dec"
+    // ];
     Future<void> _selectedDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
           context: context,
@@ -51,7 +53,7 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
           color: Colors.black,
@@ -73,11 +75,11 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 22,
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
                   filled: true,
@@ -98,7 +100,7 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
                   filled: true,
@@ -126,11 +128,11 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 22,
             ),
             Row(
-              children: [
+              children: const [
                 SizedBox(
                   width: 22,
                 ),
@@ -210,14 +212,14 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 22,
             ),
             Column(
-              children: [
+              children: const [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Textform1(Inttext1: "Aadhaar NO."),
+                  padding: EdgeInsets.all(8.0),
+                  child: Textform1(inttext1: "Aadhaar NO."),
                 ),
               ],
             ),
@@ -228,29 +230,32 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
                   border: Border.all(color: Colors.grey, width: 2.0),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(hintText: 'School Name'),
+                      decoration:
+                          const InputDecoration(hintText: 'School Name'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(hintText: 'School Addess'),
+                      decoration:
+                          const InputDecoration(hintText: 'School Addess'),
                     ),
                     TextFormField(
-                      decoration: InputDecoration(hintText: 'Study Period'),
+                      decoration:
+                          const InputDecoration(hintText: 'Study Period'),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text('Add Another School '),
+                      child: const Text('Add Another School '),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Container(
@@ -264,11 +269,11 @@ class _BelowAgeScreenState extends State<BelowAgeScreen> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ParentInformationScreen(),
+                        builder: (context) => const ParentInformationScreen(),
                       ),
                     );
                   },
-                  child: Text("Continue"),
+                  child: const Text("Continue"),
                 ))
           ],
         ),
